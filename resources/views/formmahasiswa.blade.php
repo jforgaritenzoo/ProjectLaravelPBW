@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main2')
 @section('header')
     <h6>Formulir Add Mahasiswa</h6>
 @endsection
