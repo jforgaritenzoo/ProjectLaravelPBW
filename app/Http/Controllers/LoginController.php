@@ -41,4 +41,8 @@ class LoginController extends Controller
         Auth::logout();
         return redirect('/login')->with('alert-info','Anda telah berhasil Log-out');
     }
+
+    public function formregister(){
+        return view('register');
+    }
 }

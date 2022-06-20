@@ -46,3 +46,7 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/login', 'LoginController@formlogin')->name('login');
 Route::post('/login/ceklogin', 'LoginController@ceklogin');
 
+Route::get('/register', 'LoginController@formregister')->name('register');
+Route::post('/user/registeruser', 'Controllerku@registeruser');
+
+

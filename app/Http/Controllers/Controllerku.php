@@ -39,6 +39,22 @@ class Controllerku extends Controller
         ]);
         return redirect('/user')->with('alert-success', 'Data berhasil disimpan!');
     }
+    public function registeruser(Request $req)
+    {
+        $req->validate([
+            'nama_user' => ['required', 'max:255'],
+            'nik_user' => ['required', 'unique:users', 'max:11'],
+            'no_hp' => ['required', 'max:15'],
+            'password' => ['required', 'min:8']
+        ]);
+        User::create([
+            'nama_user' => $req->nama_user,
+            'nik_user' => $req->nik_user,
+            'no_hp' => $req->no_hp,
+            'password' => md5($req->password)
+        ]);
+        return redirect('/login')->with('alert-success', 'Register berhasil, lakukan login!');
+    }
     public function formedituser($id)
     {
         $user = User::find($id);

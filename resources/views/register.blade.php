@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.98.0">
-    <title>Signin Template · Bootstrap v5.2</title>
+    <title>Register Template · Bootstrap v5.2</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
 
@@ -25,40 +25,46 @@
 <body class="text-center" style="background-color: #8FBDD3">
 
     <main class="form-signin w-100 m-auto">
-        <form action="/login/ceklogin" method="POST">
+        <form action="/user/registeruser" method="POST">
             @csrf
             <img class="mb-4"
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1200px-Laravel.svg.png"
                 alt="" width="72" height="57">
-            <h1 class="h3 mb-3 fw-normal">Login Form</h1>
+            <h1 class="h3 mb-3 fw-normal">Register Form</h1>
+            <div class="form-floating form-group">
+                <input type="text" name="nama_user" class="form-control" placeholder="Masukkan Nama Pengguna" id="floatingNama" required autofocus>
+                <label for="floatingNama">Nama Pengguna</label>
 
-            <div class="form-floating">
-                <input autofocus required name="nik_user" type="number" class="form-control" id="floatingInput"
-                    placeholder="nik">
-                <label for="floatingInput">User NIK</label>
             </div>
-            <div class="form-floating">
-                <input required name="password" type="password" class="form-control" id="floatingPassword"
-                    placeholder="password">
-                <label for="floatingPassword">Password</label>
+            <div class="form-floating form-group">
+                <input id="floatingNik" type="number" name="nik_user" class="form-control" placeholder="Masukkan NIK" required>
+                <label for="floatingNik">NIK</label>
             </div>
-            <div class="flash-message">
-                @foreach (['danger', 'info','success'] as $msg)
-                    @if (Session::has('alert-'.$msg))
-                        <div class="alert alert-{{$msg}} alert-dismissible fade show" role="alert">
-                            <strong>{{ Session::get('alert-'.$msg) }}</strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    @endif
-                @endforeach
+            <div class="form-floating form-group">
+                <input id="floatingNohp" type="text" name="no_hp" class="form-control" placeholder="Masukkan Nomor Handphone"
+                    required>
+                    <label for="floatingNohp">No Handphone</label>
             </div>
+            <div class="form-floating form-group">
+                <input id="floatingPass" type="password" name="password" class="form-control" placeholder="Masukkan Password" required>
+                <label for="floatingPass">Password</label>
+
+            </div>
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                </div>
+            @endif
 
             <div class="btn-group">
-                <button class="w-50 btn btn-lg mr-2" type="submit" style="background-color: #A88051">Sign in</button>
-                <a class="w-50 btn btn-lg" style="background-color: #F5D1A6" href="/register">Register</a>
-              </div>
+                <button type="submit" class="w-50 btn btn-lg mr-2" style="background-color: #A88051"> Register
+            </div>
 
             <p class="mt-5 mb-3 text-muted">&copy; Template 2022</p>
         </form>
