@@ -12,6 +12,7 @@
 
 Project ini adalah Project tugas Pemrograman Berbasis Web saya, yang mana aplikasi ini merupakan sebuah program aplikasi yang menggunakan framework laravel dalam penggunaannya. Untuk project ini terdapat fitur seperti berikut:
 - Login untuk dapat mengakses sistem nya
+- Register untuk user baru
 - Proses CRUD untuk user yang dapat login
 - Proses CRUD untuk data dan tabel mahasiswa
 - Memiliki fitur REST API untuk tabel mahasiswa
